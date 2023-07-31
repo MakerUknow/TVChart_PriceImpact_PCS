@@ -195,11 +195,11 @@ async function getCandleData() {
             while (currentTime < oneMinuteLater) {
                 await timer(1000); // 1000 ms = 1s
                 currentTime = Math.floor(Date.now() / 1000);
-                log(currentTime);
+                //log(currentTime);
                 continue;
             } if (currentTime == oneMinuteLater) {
                 currentTime = Math.floor(Date.now() / 1000);
-                log(currentTime);
+                //log(currentTime);
                 UNIXtimestamp = Math.floor(Date.now() / 1000);
                 log(UNIXtimestamp);
                 oneMinuteLater = Math.floor((new Date()).getTime()/1000+60);
