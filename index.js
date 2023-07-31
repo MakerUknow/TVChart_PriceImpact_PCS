@@ -197,7 +197,7 @@ async function getCandleData() {
                 currentTime = Math.floor(Date.now() / 1000);
                 //log(currentTime);
                 continue;
-            } if (currentTime == oneMinuteLater) {
+            } if (currentTime >= oneMinuteLater) {
                 currentTime = Math.floor(Date.now() / 1000);
                 //log(currentTime);
                 UNIXtimestamp = Math.floor(Date.now() / 1000);
@@ -206,7 +206,7 @@ async function getCandleData() {
                 log(oneMinuteLater);
                 // blockRangeEnd = await blockNoByTimestamp;
                 // log(blockRangeEnd);
-            } continue;
+            }
         }
     }
     iterateOverTime();
