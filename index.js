@@ -288,13 +288,9 @@ async function getCandleData() {
             open = prevClose;
             if (price > high) {
                 high = price;
-            } else {
-                high = prevHigh;
             }
             if (price < low) {
                 low = price;
-            } else {
-                low = prevLow;
             }
             close = price;
         } else if (UNIXtimestamp > prevUNIXtimestamp) {
