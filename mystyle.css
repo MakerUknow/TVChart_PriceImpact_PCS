@@ -1,0 +1,53 @@
+* {
+    font-family:'Rajdhani';
+    color: #fff
+}
+
+
+body {
+    background-color: #222
+}
+
+div {
+    text-align: center
+}
+
+h2 {
+    text-align: center
+}
+
+#tvchart {
+    position: absolute;
+    left: 250px;
+    
+}
+
+#reservebalance {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    font-family:'Rajdhani';
+    font-weight: bold;
+    font-size: larger;
+    color: #fff
+}
+
+#marketcap {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    font-family:'Rajdhani';
+    font-weight: bold;
+    font-size: larger;
+    color: #fff
+}
+
+#priceimpact {
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    font-family:'Rajdhani';
+    font-weight: bold;
+    font-size: larger;
+    color: #fff
+}

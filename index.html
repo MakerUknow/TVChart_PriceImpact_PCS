@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dynamic Candlestick Chart</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rajdhani">
+  </head>
+  <body>
+    <h2 style="color: #fff">Test Chart</h2>
+    <div id="tvchart"></div>
+    <p id="reservebalance"><br></p>
+    <p id="marketcap"><br></p>
+    <p id="priceimpact"><br></p>
+    <script> document.getElementById("reservebalance").innerHTML = "Reserve Balance:"; </script>
+    <script> document.getElementById("marketcap").innerHTML = "Market Cap:"; </script>
+    <script> document.getElementById("priceimpact").innerHTML = "Price Impact:"; </script>
+  </body>
+  
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+
+</html>
