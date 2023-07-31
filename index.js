@@ -286,42 +286,37 @@ async function getCandleData() {
             prevClose = price;           
         } else if (UNIXtimestamp == prevUNIXtimestamp) {
             open = prevClose;
-            if (price > prevHigh) {
+            if (price > high) {
                 high = price;
-                prevHigh = price;
             } else {
                 high = prevHigh;
             }
-            if (price < prevLow) {
+            if (price < low) {
                 low = price;
-                prevLow = price;
             } else {
                 low = prevLow;
             }
-            prevClose = price;
             close = price;
         } else if (UNIXtimestamp > prevUNIXtimestamp) {
+            prevHigh = high;
+            prevLow = low;
+            prevClose = close;
             open = prevClose;
-            if (price > prevClose) {
+            if (price > open) {
                 high = price;
-                prevHigh = price;
             } else {
-                high = prevClose;
-                prevHigh = prevClose;
+                high = open;
             }
-            if (price < prevClose) {
+            if (price < open) {
                 low = price;
-                prevLow = price;
             } else {
-                low = prevClose;
-                prevLow = prevClose;
+                low = open;
             }
             close = price;
-            prevClose = price;
             prevUNIXtimestamp = UNIXtimestamp;
-            // blockRangeStart = blockRangeEnd;
         }
-         
+        prevPrice = price;  
+
         var array1 = [];
         array1[0] = UNIXtimestamp
         array1[1] = toSigned(open)
@@ -357,7 +352,6 @@ async function getCandleData() {
         candleSeries.update(candleData);
         log(candleData);
         log(lineData);
-        prevPrice = price;
         
         var updateReserveBalance    = RESERVE_CONTRACT_ADDRESS == 0xcB2e6325DeAc7CD59ccE10fF90bfbe227d6D20Fc 
                                     ? toSigned(await token0ReserveBalance * await currentETHPrice / 1000000000000000000) 
