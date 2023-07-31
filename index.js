@@ -311,7 +311,7 @@ async function getCandleData() {
             close = price;
             prevUNIXtimestamp = UNIXtimestamp;
         }
-        prevPrice = price;  
+          
 
         var array1 = [];
         array1[0] = UNIXtimestamp
@@ -355,11 +355,13 @@ async function getCandleData() {
         var updateMarketCap         = RESERVE_CONTRACT_ADDRESS == 0xcB2e6325DeAc7CD59ccE10fF90bfbe227d6D20Fc 
                                     ? toSigned(marketCap * await currentETHPrice / 1000000000000000000) 
                                     : toSigned(marketCap / 1000000000000000000);
-        var updatePriceImpact       = close > open ? toSigned(((close - open) / open) * 100) : toSigned(((open - close) / open) * 100);
+        var updatePriceImpact       = price > prevPrice ? toSigned(((price - prevPrice) / prevPrice) * 100) : toSigned(((prevPrice - price) / prevPrice) * -100);
 
         resBal.innerHTML = "Reserve Balance: " + "<br>" + "<span style='color: green;'>$</span>" + "<span style='color: green;'>" + updateReserveBalance.toFixed(2) + "</span>";
         mCap.innerHTML = "Market Cap: " + "<br>" + "<span style='color: green;'>$</span>" + "<span style='color: green;'>" + updateMarketCap.toFixed(2) + "</span>";
         priceImpact.innerHTML = "Price Impact: " + "<br>" + "<span style='color: green;'>" + updatePriceImpact.toFixed(2) + "</span>" + "<span style='color: green;'>%</span>";
+
+        prevPrice = price;
         }
     }
 }
